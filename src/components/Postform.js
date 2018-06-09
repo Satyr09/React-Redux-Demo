@@ -45,8 +45,8 @@ class PostForm extends Component {
             <div className="input-group">
 
               <input type="text" className="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"  name="query" onChange={this.onChange}/>
-              <div class="input-group-append">
-                <Link to={url}><button class="btn btn-outline-secondary" type="button">Search</button></Link>
+              <div className="input-group-append">
+                <Link to={url}><button className="btn btn-outline-secondary" type="button">Search</button></Link>
               </div>
             
             </div>
