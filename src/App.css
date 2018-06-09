@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+select {
+  direction: rtl;
+  text-align-last:left; 
+}
+option{
+  text-align-last:left; 
+}
+
+.headingAndStars h5{
+  display: inline;
+  vertical-align: top;
+}
+
+.boxShadow{
+  -webkit-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 14px -5px rgba(0,0,0,0.75);
+}
+
+
+.headingAndStars p{
+  float:right;
+  vertical-align: top;
+}
+.navbar{
+  padding:18px;
+}
+.lowPad{
+  padding:9px !important;
+}
