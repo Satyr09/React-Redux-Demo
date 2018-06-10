@@ -123,9 +123,13 @@ class detailedView extends React.Component{
                     <p>Owner : {this.state.data.owner.login}</p>
 
                     
-                    <p>{this.state.data.language?<span>Language : <i  style={this.state.colorStyle} class="fas fa-circle"></i> {this.state.data.language}</span>:<span></span>}</p>
+                    <p>{
+                          this.state.data.language?<span>Language : <i  style={this.state.colorStyle} class="fas fa-circle"></i> {this.state.data.language}</span>:
+                          <span></span>
+                        }
+                    </p>
 
-                    <p><i className="fas fa-balance-scale"></i> {this.state.data.license.name} </p>                
+                    <p>{this.state.data.license?<span><i className="fas fa-balance-scale"></i> {this.state.data.license.name}</span>:<span/>} </p>                
                     
                     <p>{this.state.data.open_issues_count>0?<span>
                         {this.state.data.open_issues_count} open issues</span>:<span>No open issues</span>}</p>
