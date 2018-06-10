@@ -1,8 +1,9 @@
 import {SORT_POSTS, SHOW_DETAIL,FETCHED_RESULTS , DETAILED_VIEW,SET_LOCAL ,
-     SORT_POSTS_BY_WATCHING,SORT_POSTS_BY_OWNER } from  '../actions/types.js';
+     SORT_POSTS_BY_WATCHING,SORT_POSTS_BY_OWNER,FETCH_TOPICS,SORT_POSTS_BY_FORKS,SORT_POSTS_BY_SCORE } 
+     from  '../actions/types.js';
 
 const initialState = {
-    items: [],
+    items: [],          //not used
     results : []
 }
 
@@ -16,21 +17,23 @@ export default function postReducer(state=initialState,action){
                 return 1;
             });
             
-            console.log('Here');
-            console.log(state);
             return {...state , results:sortedItems};
         case SHOW_DETAIL:
             console.log(action.payload);
+            return state;
+            
 
         case FETCHED_RESULTS:
 
-            return {...state,results:action.payload,initialQuery:action.initialQuery}
+            /*languageObject containes the calculated frequency of top languages in response object*/
+        
+            return {...state,results:action.payload,initialQuery:action.initialQuery,languageObject:action.languageObject}
 
         case DETAILED_VIEW:
             return {...state,detailedView:action.payload}
 
         case SET_LOCAL:
-            localStorage.setItem('resultData', action.payload)
+            //localStorage.setItem('resultData', action.payload)
             return state ;
 
         case SORT_POSTS_BY_WATCHING:
@@ -40,7 +43,6 @@ export default function postReducer(state=initialState,action){
                 return 1;
             });
             
-            console.log(state);
             return {...state , results:sortedByWatching};
         case SORT_POSTS_BY_OWNER:
             let sortedByOwner = state.results.slice().sort((a,b)=>{
@@ -48,8 +50,25 @@ export default function postReducer(state=initialState,action){
                 return -1
                 return 1
             })
-
             return {...state,results:sortedByOwner}
+            
+        case SORT_POSTS_BY_FORKS:
+            let sortedByForks= state.results.slice().sort((a,b)=>{
+                if(a.forks>b.forks)
+                return -1
+                return 1
+            })
+
+            return {...state,results:sortedByForks}
+            
+        case SORT_POSTS_BY_SCORE:
+            let sortedByScore= state.results.slice().sort((a,b)=>{
+                if(a.score>b.score)
+                return -1
+                return 1
+            })                
+
+            return {...state,results:sortedByScore}
 
         case 'SET_SORT_FILTER':
 
@@ -59,13 +78,15 @@ export default function postReducer(state=initialState,action){
         case 'CHECK_STATE':
 
             console.log(state);
+            return state;
 
-        case 'CHECK_TEST':
-            return{...state,testCheck:'Daipayan'}
+        
+        case FETCH_TOPICS:
+            return{...state,topics:action.payload}
 
 
         default:
-        return state;
+            return state;
     }
 }
 

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import { sortPosts } from '../actions/postAction.js';
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 
@@ -14,7 +11,7 @@ import detailedView from './detailedView'
 
 
 
-class PostNew extends React.Component{
+class PostNew extends Component{
 
 render(){
     return(
@@ -30,11 +27,6 @@ render(){
     )
 }
 }
-
-const mapStatetoProps = state=>({
-    posts:state.posts.items,
-    newPost:state.posts.githubItems
-})
 
 
 

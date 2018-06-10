@@ -1,12 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+
 .App {
   text-align: center;
 }
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 
 select {
   direction: rtl;
@@ -37,4 +34,37 @@ option{
 }
 .lowPad{
   padding:9px !important;
+}
+
+
+*{
+  word-wrap: break-word;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+a{
+  font-family: 'Open Sans', sans-serif !important;
+  
+}
+
+.badge{
+  padding: 7px;
+  padding: 0.3em 0.9em;
+  margin: 0 0.5em 0.5em 0;
+  white-space: nowrap;
+  color : #0366d6;
+  border-radius:0; 
+  line-height: 1.5;
+  font-size: 12px;
+  font-family: "Segoe UI"
+}
+.badge-primary{
+  background-color: #f1f8ff !important;
+}
+
+@media only screen and (max-width: 600px) {
+  p,span{
+    font-size: 12px;
+  }
 }
