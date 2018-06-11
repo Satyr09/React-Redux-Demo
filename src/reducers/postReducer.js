@@ -46,10 +46,10 @@ export default function postReducer(state=initialState,action){
             return {...state , results:sortedByWatching};
         case SORT_POSTS_BY_OWNER:
             let sortedByOwner = state.results.slice().sort((a,b)=>{
-                if(a.owner.login>b.owner.login)
-                return -1
-                return 1
-            })
+                 return a.owner.login.localeCompare(b.owner.login); 
+            });
+                
+            
             return {...state,results:sortedByOwner}
             
         case SORT_POSTS_BY_FORKS:
