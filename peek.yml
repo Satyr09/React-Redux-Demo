@@ -1,4 +1,1 @@
-version: 2
-main:
-  type: static
-  path: /public
+staticBuildPath : ./build
